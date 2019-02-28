@@ -6,15 +6,17 @@ import { Button, button } from "./Button.js";
 import { Item } from "./Item.js";
 
 class Game {
-  constructor() {}
+  constructor() {
+    this.squareTimer;
+  }
   startGame() {
     board.makeBox(24);
-    const lifeCounter = new LifeCounter(3);
-    const pointsCounter = new PointsCounter(0);
     timer.startTiming(60);
     button.removeButtonStart();
     const item = new Item();
-    item.activateSquare();
+    this.squareTimer = setInterval(() => {
+      item.activateSquare();
+    }, 3000);
   }
   resetGame() {
     const lifeCounter = new LifeCounter(3);
@@ -22,6 +24,11 @@ class Game {
     timer.stopTiming();
     timer.leftTime = 61;
     timer.startTiming();
+    clearInterval(this.squareTimer);
+    const item = new Item();
+    this.squareTimer = setInterval(() => {
+      item.activateSquare();
+    }, 3000);
   }
   //   endGame()
 }

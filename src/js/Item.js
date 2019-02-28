@@ -1,4 +1,5 @@
 import { board, Board } from "./Board.js";
+import { PointsCounter, pointsCounter } from "./PointsCounter.js";
 
 class Item {
   constructor() {
@@ -7,15 +8,16 @@ class Item {
     this.square;
   }
   activateSquare() {
-    this.squareTimer = setInterval(() => {
-      this.square = this.squares[
-        Math.floor(Math.random() * board.boardBox.childNodes.length) + 1
-      ];
-      this.square.classList.add("active");
-      setTimeout(() => {
-        this.square.classList.remove("active");
-      }, 2000);
-    }, 3000);
+    this.square = this.squares[
+      Math.floor(Math.random() * board.boardBox.childNodes.length)
+    ];
+    this.square.classList.add("active");
+    this.square.addEventListener("click", function() {
+      pointsCounter.addPoints();
+    });
+    setTimeout(() => {
+      this.square.classList.remove("active");
+    }, 2000);
   }
 }
 
