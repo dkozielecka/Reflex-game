@@ -6,6 +6,4 @@ class PointsCounter {
   }
 }
 
-const pointsCounter = new PointsCounter(0);
-
-export { PointsCounter, pointsCounter };
+export { PointsCounter };

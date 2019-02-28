@@ -5,6 +5,5 @@ class LifeCounter {
     this.lifeBox.textContent = this.leftLife;
   }
 }
-const lifeCounter = new LifeCounter(3);
 
-export { LifeCounter, lifeCounter };
+export { LifeCounter };
