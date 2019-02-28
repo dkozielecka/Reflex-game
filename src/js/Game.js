@@ -1,6 +1,6 @@
 import { LifeCounter } from "./LifeCounter.js";
 import { timer } from "./Timer.js";
-import { PointsCounter } from "./PointsCounter.js";
+import { pointsCounter } from "./PointsCounter.js";
 import { board } from "./Board.js";
 import { button } from "./Button.js";
 import { Item } from "./Item.js";
@@ -22,7 +22,7 @@ class Game {
   }
   resetGame() {
     const lifeCounter = new LifeCounter(3);
-    const pointsCounter = new PointsCounter();
+    pointsCounter.actualPoints = 0;
     timer.stopTiming();
     timer.leftTime = 61;
     timer.startTiming();
