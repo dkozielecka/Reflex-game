@@ -53,6 +53,12 @@ body {
 
     @include flex(space-around);
 
+    align-items: center;
+
+    .header__counter {
+        align-self: center;
+    }
+
     button,
     .header__timer {
         @include fontsButton(1rem);
@@ -70,6 +76,8 @@ body {
     span {
         @include fontsButton(1rem);
 
+        display: inline-block;
+        height: 3rem;
         color: $primary-color;
     }
 }
