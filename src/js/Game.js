@@ -11,6 +11,11 @@ class Game {
     const pointsCounter = new PointsCounter(0);
     timer.startTiming(60);
   }
+  resetGame() {
+    const lifeCounter = new LifeCounter(3);
+    const pointsCounter = new PointsCounter(0);
+    timer.startTiming(60);
+  }
   //   endGame()
 }
 
