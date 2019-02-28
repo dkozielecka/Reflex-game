@@ -1,3 +1,3 @@
-class StartGame {
+class Item {
   Constructor() {}
 }
