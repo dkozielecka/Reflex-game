@@ -24,6 +24,12 @@ $background-color: #e8f1f8;
     border: 1px solid $secondary-color;
 }
 
+@mixin hoverButtonStyle {
+    background-color: $secondary-color;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -87,6 +93,10 @@ body {
     }
 
     .button__status {
+        width: 25%;
+
+        @include flex(space-between);
+
         button {
             @include fontsButton(1rem);
             @include buttonStyle;
@@ -96,8 +106,7 @@ body {
         }
 
         button:hover {
-            @include fontsButton(1rem);
-            @include buttonStyle;
+            @include hoverButtonStyle;
         }
     }
 }
