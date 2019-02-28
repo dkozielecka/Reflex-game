@@ -9,6 +9,9 @@ class Timer {
   startTiming() {
     if (this.leftTime > 0) {
       this.countdown = setInterval(() => {
+        if (this.leftTime <= 4) {
+          this.timerBox.classList.add("red");
+        }
         this.leftTime -= 1;
         this.timerBox.textContent = this.leftTime;
       }, 1000);
