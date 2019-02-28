@@ -66,6 +66,12 @@ body {
         line-height: 3rem;
         color: $highlights-color;
     }
+
+    span {
+        @include fontsButton(1rem);
+
+        color: $primary-color;
+    }
 }
 
 .main {
