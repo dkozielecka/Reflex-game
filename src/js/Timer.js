@@ -1,21 +1,16 @@
 class Timer {
   constructor(time) {
     this.timerBox = document.querySelector(".header__timer");
-    this.leftTime = time;
+    this.leftTime = 60;
     this.timerBox.textContent = this.leftTime;
     this.countdown;
   }
-
   startTiming() {
-    if (this.leftTime > 0) {
-      this.countdown = setInterval(() => {
-        if (this.leftTime <= 4) {
-          this.timerBox.classList.add("red");
-        }
-        this.leftTime -= 1;
-        this.timerBox.textContent = this.leftTime;
-      }, 1000);
+    if (this.leftTime < 3) {
+      this.timerBox.classList.add("red");
     }
+    this.leftTime -= 1;
+    this.timerBox.textContent = this.leftTime;
   }
   stopTiming() {
     clearInterval(this.countdown);

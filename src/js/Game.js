@@ -11,7 +11,9 @@ class Game {
   }
   startGame() {
     board.makeBox(24);
-    timer.startTiming(60);
+    this.timerInterval = setInterval(() => {
+      timer.leftTime > 0 ? timer.startTiming() : game.endGame();
+    }, 1000);
     button.removeButtonStart();
     const item = new Item();
     this.squareTimer = setInterval(() => {
@@ -30,9 +32,14 @@ class Game {
       item.activateSquare();
     }, 3000);
   }
-  //   endGame()
 }
 
 const game = new Game();
+
+Game.prototype.endGame = () => {
+  clearInterval(this.squareTimer);
+  clearInterval(this.timerInterval);
+  window.alert(`Game over! Your score is: ${pointsCounter.actualPoints}`);
+};
 
 export { Game, game };
