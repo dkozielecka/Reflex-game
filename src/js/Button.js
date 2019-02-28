@@ -1,15 +1,11 @@
 class Button {
-  constructor() {}
-}
-
-class StartButton extends Button {
   constructor() {
-    super();
+    this.startButton = document.querySelector("#start");
+  }
+  removeButtonStart() {
+    this.startButton.classList.add("disable");
   }
 }
 
-class ResetButton extends Button {
-  constructor() {
-    super();
-  }
-}
+const button = new Button();
+export { Button, button };

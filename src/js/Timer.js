@@ -3,16 +3,19 @@ class Timer {
     this.timerBox = document.querySelector(".header__timer");
     this.leftTime = time;
     this.timerBox.textContent = this.leftTime;
+    this.countdown;
   }
 
   startTiming() {
-    this.leftTime > 0
-      ? setInterval(() => {
-          this.leftTime -= 1;
-          this.timerBox.textContent = this.leftTime;
-        }, 1000)
-      : console.log("endGame()");
-    clearInterval(this.setInterval);
+    if (this.leftTime > 0) {
+      this.countdown = setInterval(() => {
+        this.leftTime -= 1;
+        this.timerBox.textContent = this.leftTime;
+      }, 1000);
+    }
+  }
+  stopTiming() {
+    clearInterval(this.countdown);
   }
 }
 
