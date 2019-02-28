@@ -1,8 +1,8 @@
 import { LifeCounter } from "./LifeCounter.js";
-import { Timer, timer } from "./Timer.js";
+import { timer } from "./Timer.js";
 import { PointsCounter } from "./PointsCounter.js";
-import { Board, board } from "./Board.js";
-import { Button, button } from "./Button.js";
+import { board } from "./Board.js";
+import { button } from "./Button.js";
 import { Item } from "./Item.js";
 
 class Game {

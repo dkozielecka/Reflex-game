@@ -1,5 +1,5 @@
-import { board, Board } from "./Board.js";
-import { PointsCounter, pointsCounter } from "./PointsCounter.js";
+import { board } from "./Board.js";
+import { pointsCounter } from "./PointsCounter.js";
 
 class Item {
   constructor() {

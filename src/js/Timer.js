@@ -1,5 +1,5 @@
 class Timer {
-  constructor(time) {
+  constructor() {
     this.timerBox = document.querySelector(".header__timer");
     this.leftTime = 60;
     this.timerBox.textContent = this.leftTime;

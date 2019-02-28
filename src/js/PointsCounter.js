@@ -1,5 +1,5 @@
 class PointsCounter {
-  constructor(points) {
+  constructor() {
     this.pointsBox = document.querySelector("#points");
     this.actualPoints = 0;
     this.pointsBox.textContent = this.actualPoints;
