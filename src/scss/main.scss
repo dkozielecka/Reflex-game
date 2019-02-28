@@ -1,0 +1,59 @@
+$primary-color: #222f3f;
+$secondary-color: #adc4d6;
+$highlights-color: #f80652;
+$background-color: #e8f1f8;
+
+@mixin flex($props) {
+    display: flex;
+    justify-content: $props;
+}
+
+@mixin fontsButton($props) {
+    text-transform: uppercase;
+    font-size: $props;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @include flex(center);
+
+    align-items: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    font-size: 10px;
+    height: 100vh;
+    width: 100%;
+    background-color: $background-color;
+}
+
+.header {
+    width: 70%;
+
+    @include flex(space-around);
+
+    button,
+    .header__timer {
+        @include fontsButton(1rem);
+
+        width: 7rem;
+        height: 3rem;
+        background-color: $primary-color;
+        color: $secondary-color;
+        border: 1px solid $secondary-color;
+    }
+
+    h1 {
+        @include fontsButton(2rem);
+
+        line-height: 3rem;
+        color: $highlights-color;
+    }
+}
