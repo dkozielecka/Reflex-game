@@ -22,7 +22,7 @@ class Game {
   }
   resetGame() {
     const lifeCounter = new LifeCounter(3);
-    const pointsCounter = new PointsCounter(0);
+    const pointsCounter = new PointsCounter();
     timer.stopTiming();
     timer.leftTime = 61;
     timer.startTiming();
