@@ -8,6 +8,8 @@ Paleta barw :
 
 https://color.adobe.com/pl/Kopia-Tema-de-cores-6-color-theme-12099106/
 
+https://dkozielecka.github.io/Zadanie-rekrutacyjne/
+
 <!-- # Zadanie rekrutacyjne - JavaScript
 
 Zadanie rekrutacyjne dla osób aplikujących na stanowisko Młodszy Programista JavaScript.
