@@ -1,7 +1,7 @@
 
 
 class Game {
-  Constructor() {}
+  constructor() {}
   startGame()
   endGame()
 }

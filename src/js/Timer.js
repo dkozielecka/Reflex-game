@@ -1,17 +1,18 @@
 class Timer {
-  Constructor(time) {
-    const timerBox = document.querySelector(".header__timer");
-    let leftTime = time;
-    timerBox.textContent = leftTime;
-    console.log("hh");
+  constructor(time) {
+    this.timerBox = document.querySelector(".header__timer");
+    this.leftTime = time;
+    this.timerBox.textContent = this.leftTime;
   }
+
   startTiming() {
-    leftTime > 0
+    this.leftTime > 0
       ? setInterval(() => {
-          leftTime -= 1;
-          timerBox.textContent = leftTime;
+          this.leftTime -= 1;
+          this.timerBox.textContent = this.leftTime;
         }, 1000)
-      : endGame();
+      : console.log("endGame()");
+    clearInterval(this.setInterval);
   }
 }
 

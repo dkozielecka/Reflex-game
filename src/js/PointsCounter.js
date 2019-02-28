@@ -1,5 +1,5 @@
 class PointsCounter extends Counter {
-  Constructor() {
+  constructor() {
     super();
   }
 }

@@ -1,15 +1,15 @@
 class Button {
-  Constructor() {}
+  constructor() {}
 }
 
 class StartButton extends Button {
-  Constructor() {
+  constructor() {
     super();
   }
 }
 
 class ResetButton extends Button {
-  Constructor() {
+  constructor() {
     super();
   }
 }

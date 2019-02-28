@@ -1,6 +1,5 @@
 class LifeCounter extends Counter {
-  Constructor() {
+  constructor() {
     super();
   }
 }
-
