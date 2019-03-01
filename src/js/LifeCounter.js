@@ -8,6 +8,9 @@ class LifeCounter {
   loseLife() {
     this.leftLife -= 1;
     this.lifeBox.textContent = this.leftLife;
+    if (this.leftLife > 0) {
+      alert("You lose a life!");
+    }
   }
 }
 const lifeCounter = new LifeCounter(3);

@@ -10,12 +10,9 @@ class Item {
     this.chceckClick.bind(this);
   }
   activateSquare() {
-    console.log(this.squares);
-    console.log(
-      (this.square = this.squares[
-        Math.floor(Math.random() * board.boardBox.childNodes.length)
-      ])
-    );
+    this.square = this.squares[
+      Math.floor(Math.random() * board.boardBox.childNodes.length)
+    ];
 
     this.square.classList.add("active");
 
