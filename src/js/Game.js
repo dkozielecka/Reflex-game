@@ -1,4 +1,4 @@
-import { LifeCounter } from "./LifeCounter.js";
+import { LifeCounter, lifeCounter } from "./LifeCounter.js";
 import { timer } from "./Timer.js";
 import { pointsCounter } from "./PointsCounter.js";
 import { board } from "./Board.js";
@@ -24,8 +24,10 @@ class Game {
     item.chceckClick();
   }
   resetGame() {
-    const lifeCounter = new LifeCounter(3);
+    lifeCounter.leftLife = 3;
+    lifeCounter.lifeBox.textContent = 3;
     pointsCounter.actualPoints = 0;
+    pointsCounter.pointsBox.textContent = 0;
     timer.stopTiming();
     timer.leftTime = 61;
     timer.startTiming();
@@ -41,7 +43,9 @@ class Game {
     timer.leftTime = 61;
     timer.startTiming();
     pointsCounter.actualPoints = 0;
-    const lifeCounter = new LifeCounter(3);
+    pointsCounter.pointsBox.textContent = 0;
+    lifeCounter.leftLife = 3;
+    lifeCounter.lifeBox.textContent = 3;
     const item = new Item();
     this.squareTimer = setInterval(() => {
       item.activateSquare();
