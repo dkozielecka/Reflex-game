@@ -1,3 +1,5 @@
+import { game } from "./Game.js";
+
 class LifeCounter {
   constructor(life) {
     this.leftLife = life;
@@ -10,6 +12,8 @@ class LifeCounter {
     this.lifeBox.textContent = this.leftLife;
     if (this.leftLife > 0) {
       alert("You lose a life!");
+    } else if (this.leftLife === 0) {
+      game.endGame();
     }
   }
 }
