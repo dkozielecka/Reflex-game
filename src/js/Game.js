@@ -3,7 +3,7 @@ import { Timer } from "./Timer.js";
 import { PointsCounter } from "./PointsCounter.js";
 import { Board } from "./Board.js";
 import { button } from "./Button.js";
-import { SquareContainer } from "./SquareContainer.js/index.js";
+import { SquareContainer } from "./SquareContainer.js";
 
 class Game {
   constructor() {
@@ -41,7 +41,7 @@ class Game {
   }
   endGame() {
     clearInterval(this.squareTimer);
-    alert(`Game over! Your score's: ${pointsCounter.actualPoints}`);
+    alert(`Game over! Your score's: ${this.pointsCounter.actualPoints}`);
     this.timer.leftTime = 60;
     this.timer.start();
     this.pointsCounter.reset();
