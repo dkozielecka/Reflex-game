@@ -8,6 +8,8 @@ class Timer {
   startTiming() {
     if (this.leftTime < 3) {
       this.timerBox.classList.add("red");
+    } else {
+      this.timerBox.classList.remove("red");
     }
     this.leftTime -= 1;
     this.timerBox.textContent = this.leftTime;

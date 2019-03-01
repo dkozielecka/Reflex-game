@@ -113,6 +113,10 @@ body {
         .active {
             background-color: $highlights-color;
         }
+
+        .clicked {
+            box-shadow: 1px 1px 1px $highlights-color;
+        }
     }
 
     .button__status {

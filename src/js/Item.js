@@ -17,15 +17,23 @@ class Item {
     this.square.classList.add("active");
 
     setTimeout(() => {
-      this.square.classList.remove("active");
+      if (this.square.classList.contains("active")) {
+        lifeCounter.loseLife();
+        this.square.classList.remove("active");
+      } else {
+        this.square.classList.remove("active");
+      }
     }, 2000);
   }
   chceckClick() {
     this.squares.forEach(item => {
       item.addEventListener("click", () => {
-        item.classList.contains("active")
-          ? pointsCounter.addPoints()
-          : lifeCounter.loseLife();
+        if (item.classList.contains("active")) {
+          item.classList.remove("active");
+          pointsCounter.addPoints();
+        } else {
+          lifeCounter.loseLife();
+        }
       });
     });
   }
