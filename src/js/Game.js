@@ -14,6 +14,7 @@ class Game {
     this.timer = new Timer(60);
     this.pointsCounter = new PointsCounter();
     this.lifeCounter = new LifeCounter(3);
+    this.square;
   }
   start() {
     this.board.makesBox(24);
@@ -21,11 +22,11 @@ class Game {
       this.timer.leftTime > 0 ? this.timer.start() : this.endGame();
     }, 1000);
     button.removeButtonStart();
-    const item = new SquareContainer();
+    this.square = new SquareContainer();
     this.squareTimer = setInterval(() => {
-      item.activateSquare();
+      this.square.activateSquare();
     }, 3000);
-    item.chceckClick();
+    this.square.chceckClick();
   }
   resetGame() {
     this.lifeCounter.reset();
@@ -34,22 +35,14 @@ class Game {
     this.timer.leftTime = 60;
     this.timer.start();
     clearInterval(this.squareTimer);
-    const item = new SquareContainer();
+    this.square = new SquareContainer();
     this.squareTimer = setInterval(() => {
-      item.activateSquare();
+      this.square.activateSquare();
     }, 3000);
   }
   endGame() {
-    clearInterval(this.squareTimer);
     alert(`Game over! Your score's: ${this.pointsCounter.actualPoints}`);
-    this.timer.leftTime = 60;
-    this.timer.start();
-    this.pointsCounter.reset();
-    this.lifeCounter.reset();
-    const item = new SquareContainer();
-    this.squareTimer = setInterval(() => {
-      item.activateSquare();
-    }, 3000);
+    this.resetGame();
   }
 }
 
