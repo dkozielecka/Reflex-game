@@ -2,15 +2,13 @@ class Board {
   constructor() {
     this.boardBox = document.querySelector(".board");
   }
-  makeBox(amount) {
+  makesBox(amount) {
     for (let i = 0; i < amount; i++) {
-      this.itemBox = document.createElement("div");
-      this.itemBox.classList.add("item");
-      this.boardBox.appendChild(this.itemBox);
+      this.squareBox = document.createElement("div");
+      this.squareBox.classList.add("square");
+      this.boardBox.appendChild(this.squareBox);
     }
   }
 }
 
-const board = new Board();
-
-export { Board, board };
+export { Board };

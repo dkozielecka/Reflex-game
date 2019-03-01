@@ -1,13 +1,14 @@
 import { game } from "./Game.js";
 
 class LifeCounter {
-  constructor(life) {
-    this.leftLife = life;
+  constructor() {
+    this.leftLife = 3;
     this.lifeBox = document.querySelector("#life");
     this.lifeBox.textContent = this.leftLife;
-    this.loseLife.bind(this);
+    this.lose.bind(this);
+    this.reset.bind(this);
   }
-  loseLife() {
+  lose() {
     this.leftLife -= 1;
     this.lifeBox.textContent = this.leftLife;
     if (this.leftLife > 0) {
@@ -16,7 +17,10 @@ class LifeCounter {
       game.endGame();
     }
   }
+  reset() {
+    this.leftLife = 3;
+    this.lifeBox.textContent = this.leftLife;
+  }
 }
-const lifeCounter = new LifeCounter(3);
 
-export { LifeCounter, lifeCounter };
+export { LifeCounter };

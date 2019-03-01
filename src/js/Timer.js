@@ -5,7 +5,7 @@ class Timer {
     this.timerBox.textContent = this.leftTime;
     this.countdown;
   }
-  startTiming() {
+  start() {
     if (this.leftTime < 3) {
       this.timerBox.classList.add("red");
     } else {
@@ -14,11 +14,9 @@ class Timer {
     this.leftTime -= 1;
     this.timerBox.textContent = this.leftTime;
   }
-  stopTiming() {
+  stop() {
     clearInterval(this.countdown);
   }
 }
 
-const timer = new Timer(60);
-
-export { Timer, timer };
+export { Timer };

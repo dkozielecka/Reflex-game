@@ -3,13 +3,16 @@ class PointsCounter {
     this.pointsBox = document.querySelector("#points");
     this.actualPoints = 0;
     this.pointsBox.textContent = this.actualPoints;
-    this.addPoints.bind(this);
+    this.add.bind(this);
   }
-  addPoints() {
+  add() {
     this.actualPoints += 1;
     this.pointsBox.textContent = this.actualPoints;
   }
+  reset() {
+    this.actualPoints = 0;
+    this.pointsBox.textContent = this.actualPoints;
+  }
 }
-let pointsCounter = new PointsCounter();
 
-export { PointsCounter, pointsCounter };
+export { PointsCounter };

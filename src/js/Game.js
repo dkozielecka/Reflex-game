@@ -1,38 +1,40 @@
-import { LifeCounter, lifeCounter } from "./LifeCounter.js";
-import { timer } from "./Timer.js";
-import { pointsCounter } from "./PointsCounter.js";
-import { board } from "./Board.js";
+import { LifeCounter } from "./LifeCounter.js";
+import { Timer } from "./Timer.js";
+import { PointsCounter } from "./PointsCounter.js";
+import { Board } from "./Board.js";
 import { button } from "./Button.js";
-import { Item } from "./Item.js";
+import { SquareContainer } from "./SquareContainer.js/index.js";
 
 class Game {
   constructor() {
     this.squareTimer;
     this.timerInterval;
     this.endGame.bind(this);
+    this.board = new Board();
+    this.timer = new Timer(60);
+    this.pointsCounter = new PointsCounter();
+    this.lifeCounter = new LifeCounter(3);
   }
-  startGame() {
-    board.makeBox(24);
+  start() {
+    this.board.makesBox(24);
     this.timerInterval = setInterval(() => {
-      timer.leftTime > 0 ? timer.startTiming() : this.endGame();
+      this.timer.leftTime > 0 ? this.timer.start() : this.endGame();
     }, 1000);
     button.removeButtonStart();
-    const item = new Item();
+    const item = new SquareContainer();
     this.squareTimer = setInterval(() => {
       item.activateSquare();
     }, 3000);
     item.chceckClick();
   }
   resetGame() {
-    lifeCounter.leftLife = 3;
-    lifeCounter.lifeBox.textContent = 3;
-    pointsCounter.actualPoints = 0;
-    pointsCounter.pointsBox.textContent = 0;
-    timer.stopTiming();
-    timer.leftTime = 61;
-    timer.startTiming();
+    this.lifeCounter.reset();
+    this.pointsCounter.reset();
+    this.timer.stop();
+    this.timer.leftTime = 60;
+    this.timer.start();
     clearInterval(this.squareTimer);
-    const item = new Item();
+    const item = new SquareContainer();
     this.squareTimer = setInterval(() => {
       item.activateSquare();
     }, 3000);
@@ -40,13 +42,11 @@ class Game {
   endGame() {
     clearInterval(this.squareTimer);
     alert(`Game over! Your score's: ${pointsCounter.actualPoints}`);
-    timer.leftTime = 61;
-    timer.startTiming();
-    pointsCounter.actualPoints = 0;
-    pointsCounter.pointsBox.textContent = 0;
-    lifeCounter.leftLife = 3;
-    lifeCounter.lifeBox.textContent = 3;
-    const item = new Item();
+    this.timer.leftTime = 60;
+    this.timer.start();
+    this.pointsCounter.reset();
+    this.lifeCounter.reset();
+    const item = new SquareContainer();
     this.squareTimer = setInterval(() => {
       item.activateSquare();
     }, 3000);
