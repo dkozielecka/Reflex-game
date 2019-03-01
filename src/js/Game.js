@@ -8,6 +8,7 @@ import { Item } from "./Item.js";
 class Game {
   constructor() {
     this.squareTimer;
+    this.timerInterval;
   }
   startGame() {
     board.makeBox(24);
@@ -19,6 +20,7 @@ class Game {
     this.squareTimer = setInterval(() => {
       item.activateSquare();
     }, 3000);
+    item.chceckClick();
   }
   resetGame() {
     const lifeCounter = new LifeCounter(3);
@@ -35,11 +37,5 @@ class Game {
 }
 
 const game = new Game();
-
-Game.prototype.endGame = () => {
-  clearInterval(this.squareTimer);
-  clearInterval(this.timerInterval);
-  window.alert(`Game over! Your score is: ${pointsCounter.actualPoints}`);
-};
 
 export { Game, game };

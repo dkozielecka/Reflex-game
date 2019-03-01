@@ -5,30 +5,33 @@ import { lifeCounter } from "./LifeCounter.js";
 class Item {
   constructor() {
     this.squares = [...document.querySelectorAll(".item")];
-    this.squareTimer;
     this.square;
+    this.activateSquare.bind(this);
+    this.chceckClick.bind(this);
   }
   activateSquare() {
-    this.square = this.squares[
-      Math.floor(Math.random() * board.boardBox.childNodes.length)
-    ];
+    console.log(this.squares);
+    console.log(
+      (this.square = this.squares[
+        Math.floor(Math.random() * board.boardBox.childNodes.length)
+      ])
+    );
+
     this.square.classList.add("active");
-    this.square.addEventListener("click", function() {
-      pointsCounter.addPoints();
-    });
+
     setTimeout(() => {
       this.square.classList.remove("active");
     }, 2000);
   }
-  // loseLife() {
-  //   this.squares = this.squares.map(item =>
-  //     item.addEventListener("click", () => {
-  //       if (!item.classList.contains("active")) {
-  //         lifeCounter.leftLife -= 1;
-  //       }
-  //     })
-  //   );
-  // }
+  chceckClick() {
+    this.squares.forEach(item => {
+      item.addEventListener("click", () => {
+        item.classList.contains("active")
+          ? pointsCounter.addPoints()
+          : lifeCounter.loseLife();
+      });
+    });
+  }
 }
 
 export { Item };
